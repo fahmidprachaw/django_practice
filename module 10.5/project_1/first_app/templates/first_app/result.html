@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .logo{
+            font-size: 28px;
+        }
+        #word{
+            color: red;
+            font-size: 40px;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+        .navigation{
+            display: flex;
+            gap: 15px;
+            font-size: 18px;
+        }
+        .navigation a{
+            text-decoration: none;
+            color: black;
+        }
+        .title{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h4>U<span id="word">N</span>I</h4>
+        </div>
+        <div class="navigation">
+            <a href="/">Home</a>
+            <a href="/first_app/">Portal</a>
+            <a href="/first_app/result/">Result</a>
+            <a href="/first_app/course/">Courses</a>
+        </div>
+    </nav>
+
+    <div class="title">
+        <h1>Here is your Result..</h1>
+
+        {% if result >= 4.00 %}
+            <h3>You get A+ with point: {{result}}</h3>
+        {% elif result >= 3.75 and result <= 4.00 %}
+            <h3>You get A with point: {{result}}</h3>
+        {% elif result >= 3.50 and result <= 3.75 %}
+            <h3>You get A- with point: {{result}}</h3>
+        {% elif result >= 3.25 and result <= 3.50 %}
+            <h3>You get B+ with point: {{result}}</h3>
+        {% elif result >= 3.00 and result <= 3.25 %}
+            <h3>You get B with point: {{result}}</h3>
+        {% elif result >= 2.75 and result <= 3.00 %}
+            <h3>You get B- with point: {{result}}</h3>
+        {% elif result >= 2.50 and result <= 2.75 %}
+            <h3>You get C+ with point: {{result}}</h3>
+        {% elif result >= 2.25 and result <= 2.50 %}
+            <h3>You get C with point: {{result}}</h3>
+        {% elif result >= 2.00 and result <= 2.25 %}
+            <h3>You get C- with point: {{result}}</h3>
+        {% else %}
+            <h3>You get F</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
