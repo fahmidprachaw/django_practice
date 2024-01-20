@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container row mx-auto gap-3 mt-5">
+    {% for i in data %}
+      <div class="card col-md-3" style="width: 18rem;">
+        <img src="{{ i.strMealThumb }}" class="card-img-top pt-2" alt="..." />
+        <div class="card-body text-center">
+          <p class="card-text">Meal ID: {{ i.idMeal }}</p>
+          <p class="card-text">{{ i.strMeal }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
