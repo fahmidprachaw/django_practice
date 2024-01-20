@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block contant %}
+<table class="table container mx-auto mt-5">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Musician Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Album Rating</th>
+        <th scope="col">Instrument Type</th>
+        <th scope="col">Album Name</th>
+        <th scope="col">Release Date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    {% for i in data %}
+    {% for j in i.album %}
+    <tbody>
+        <tr>
+          <td>{{i.musician.id}}</td>
+          <td>{{i.musician.firstName}} {{i.musician.lastName}}</td>
+          <td>{{i.musician.email}}</td>
+          <td>{{j.rating}}</td>
+          <td>{{i.musician.instrument}}</td>
+          <td>{{j.albumName}}</td>
+          <td>{{j.release}}</td>
+          <td><div>
+            {% comment %} <button class="btn btn-warning">Edit</button>
+            <button class="btn btn-danger">Delete</button> {% endcomment %}
+            <a class="btn btn-warning" href="{% url "edit_musician" i.musician.id %}">Edit</a>
+            <a class="btn btn-danger" href="{% url "delete_musician" i.musician.id %}">Delete</a>
+          </div></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    {% endfor %}
+  </table>
+{% endblock  %}
