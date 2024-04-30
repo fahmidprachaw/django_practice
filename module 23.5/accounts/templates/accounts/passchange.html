@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <form method="post" class="w-2/4 mx-auto my-8 bg-dark" novalidate>
+        {% csrf_token %}
+        {{form | crispy}}
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-auto" type="submit">Submit</button>
+    </form>
+{% endblock  %}
